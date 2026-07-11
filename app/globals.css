@@ -136,6 +136,7 @@ h1 .pixel-icon { width: .8em; height: .8em; letter-spacing: 0; }
 .search-field input::placeholder { color: var(--muted); opacity: .85; }
 .site-search { position: relative; width: min(100%, 330px); margin-top: 36px; }
 .site-search .search-field { width: 100%; }
+.blog-page > .search-field { width: min(100%, 330px); }
 .site-search-results { position: absolute; z-index: 2; display: grid; width: 100%; gap: 2px; margin: 8px 0 0; padding: 7px; border: 2px solid var(--line); border-radius: 7px; background: var(--paper); box-shadow: 3px 3px 0 color-mix(in oklch, var(--ink) 13%, transparent); list-style: none; }
 .site-search-results a { display: grid; gap: 3px; padding: 7px; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.35; text-decoration: none; }
 .site-search-results a:hover { background: var(--paper-soft); color: var(--accent); }
