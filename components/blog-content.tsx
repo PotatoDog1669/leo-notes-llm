@@ -23,7 +23,6 @@ export function BlogContent({ posts }: { posts: Post[] }) {
       <h1><PixelIcon name="scroll" size={44} /> Blog</h1>
       <p className="lede">Notes, references, and small experiments on design, technology, and the things I&apos;m learning.</p>
 
-      <Link className="topic-link" href="/topics">All topics</Link>
       <label className="search-field">
         <PixelIcon name="search" size={25} />
         <input
@@ -34,6 +33,7 @@ export function BlogContent({ posts }: { posts: Post[] }) {
           aria-label="Search posts"
         />
       </label>
+      <Link className="topic-link" href="/topics">All topics</Link>
 
       <section className="post-groups" aria-live="polite">
         {Object.entries(groupedPosts).sort(([firstYear], [secondYear]) => Number(secondYear) - Number(firstYear)).map(([year, yearlyPosts]) => (

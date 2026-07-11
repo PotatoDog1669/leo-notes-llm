@@ -10,7 +10,8 @@ export function generateStaticParams() {
 
 export default async function TopicPage({ params }: { params: Promise<{ tag: string }> }) {
   const { tag } = await params
-  const posts = getPostsByTag(tag)
+  const decodedTag = decodeURIComponent(tag)
+  const posts = getPostsByTag(decodedTag)
   if (!posts.length) notFound()
 
   return (
@@ -18,7 +19,7 @@ export default async function TopicPage({ params }: { params: Promise<{ tag: str
       <main className="content-page topics-page">
         <Link className="back-link" href="/topics"><ArrowLeft size={19} aria-hidden="true" /> All topics</Link>
         <p className="topic-kicker">Topic</p>
-        <h1>{tag}</h1>
+        <h1>{decodedTag}</h1>
         <div className="topic-posts">
           {posts.map((post) => (
             <article key={post.slug}>
