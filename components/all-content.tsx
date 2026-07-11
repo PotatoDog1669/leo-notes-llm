@@ -11,6 +11,7 @@ export function AllContent({ posts }: { posts: Post[] }) {
       <h1><PixelIcon name="map" size={44} /> All</h1>
       <p className="lede">Everything I publish, newest first.</p>
       <SiteSearch items={searchItems} />
+      <Link className="topic-link" href="/topics">All topics</Link>
 
       <section className="all-timeline" aria-label="All published work">
         {posts.map((post) => (

@@ -137,7 +137,7 @@ h1 .pixel-icon { width: .8em; height: .8em; letter-spacing: 0; }
 .site-search { position: relative; width: min(100%, 330px); margin-top: 36px; }
 .site-search .search-field { width: 100%; }
 .blog-page > .search-field { width: min(100%, 330px); margin-top: 36px; }
-.blog-page > .topic-link { margin: 26px 0 0; }
+.all-page > .topic-link { margin: 26px 0 0; }
 .site-search-results { position: absolute; z-index: 2; display: grid; width: 100%; gap: 2px; margin: 8px 0 0; padding: 7px; border: 2px solid var(--line); border-radius: 7px; background: var(--paper); box-shadow: 3px 3px 0 color-mix(in oklch, var(--ink) 13%, transparent); list-style: none; }
 .site-search-results a { display: grid; gap: 3px; padding: 7px; color: var(--ink); font-size: 14px; font-weight: 600; line-height: 1.35; text-decoration: none; }
 .site-search-results a:hover { background: var(--paper-soft); color: var(--accent); }
@@ -301,7 +301,7 @@ h1 .pixel-icon { width: .8em; height: .8em; letter-spacing: 0; }
   h1 { gap: 12px; font-size: 44px; }
   .lede { margin-top: 22px; font-size: 21px; }
   .topic-link { margin-top: 48px; margin-bottom: 28px; }
-  .blog-page > .topic-link { margin-top: 28px; margin-bottom: 0; }
+  .all-page > .topic-link { margin-top: 28px; margin-bottom: 0; }
   .search-field { width: 100%; }
   .post-groups { margin-top: 65px; }
   .year-group + .year-group { margin-top: 62px; }

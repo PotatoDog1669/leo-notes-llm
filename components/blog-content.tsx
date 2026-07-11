@@ -33,7 +33,6 @@ export function BlogContent({ posts }: { posts: Post[] }) {
           aria-label="Search posts"
         />
       </label>
-      <Link className="topic-link" href="/topics">All topics</Link>
 
       <section className="post-groups" aria-live="polite">
         {Object.entries(groupedPosts).sort(([firstYear], [secondYear]) => Number(secondYear) - Number(firstYear)).map(([year, yearlyPosts]) => (
