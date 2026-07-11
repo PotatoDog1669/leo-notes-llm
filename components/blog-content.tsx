@@ -46,6 +46,7 @@ export function BlogContent({ posts }: { posts: Post[] }) {
                 <article key={post.slug} className="post-preview">
                   <time dateTime={post.date}>{post.displayDate}</time>
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  <p>{post.summary}</p>
                 </article>
               ))}
             </div>
