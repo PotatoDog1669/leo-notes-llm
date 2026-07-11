@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import type { ReactNode } from 'react'
 import { Analytics } from '@vercel/analytics/next'
+import { siteUrl } from '@/lib/site'
 import './globals.css'
 
 const outfit = Outfit({
@@ -10,8 +11,6 @@ const outfit = Outfit({
   variable: '--font-outfit',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://potatodog.cc'
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -19,6 +18,9 @@ export const metadata: Metadata = {
     template: "%s | Leo's Notes",
   },
   description: 'Writing by Leo (黎耀聪) on large language models, agents, and the systems around them.',
+  icons: {
+    icon: [{ url: '/icon.svg?v=3', type: 'image/svg+xml' }],
+  },
   authors: [{ name: 'Leo (黎耀聪)', url: 'https://github.com/PotatoDog1669' }],
   creator: 'Leo (黎耀聪)',
   keywords: ['LLM', 'AI agents', 'algorithm engineering', 'systems design', 'Leo'],
