@@ -8,7 +8,7 @@ type Heading = {
   level: number
 }
 
-export function ArticleToc({ headings }: { headings: Heading[] }) {
+export function ArticleToc({ headings, label = 'Table of Contents' }: { headings: Heading[]; label?: string }) {
   const [activeId, setActiveId] = useState(headings[0]?.id ?? '')
 
   useEffect(() => {
@@ -45,8 +45,8 @@ export function ArticleToc({ headings }: { headings: Heading[] }) {
   }, [headings])
 
   return (
-    <aside className="article-toc" aria-label="Table of contents">
-      <h2>Table of Contents</h2>
+    <aside className="article-toc" aria-label={label}>
+      <h2>{label}</h2>
       <nav>
         {headings.map((heading) => (
           <a

@@ -2,31 +2,11 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, Hash } from 'lucide-react'
-import { marked } from 'marked'
 import { SiteShell } from '@/components/site-shell'
 import { GiscusComments } from '@/components/giscus-comments'
 import { ArticleToc } from '@/components/article-toc'
+import { renderArticle } from '@/lib/render-article'
 import { getAdjacentPosts, getAllPosts, getPostBySlug } from '@/lib/posts'
-
-type Heading = { id: string; text: string; level: number }
-
-function slugify(value: string) {
-  return value.toLowerCase().trim()
-    .replace(/[^\p{L}\p{N}\s-]/gu, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-}
-
-function renderPostContent(markdown: string) {
-  const headings: Heading[] = []
-  const renderer = new marked.Renderer()
-  renderer.heading = ({ text, depth }) => {
-    const id = slugify(text)
-    if (depth === 2 || depth === 3) headings.push({ id, text, level: depth })
-    return `<h${depth} id="${id}"><a class="heading-anchor" href="#${id}" aria-label="Link to ${text}">#</a>${text}</h${depth}>`
-  }
-  return { html: marked.parse(markdown, { renderer, gfm: true }) as string, headings }
-}
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
@@ -66,7 +46,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const post = getPostBySlug(slug)
   if (!post) notFound()
 
-  const { html, headings } = renderPostContent(post.content)
+  const { html, headings } = renderArticle(post.content)
   const { newer, older } = getAdjacentPosts(post.slug)
 
   return (

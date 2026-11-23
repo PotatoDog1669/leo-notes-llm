@@ -6,3 +6,12 @@
 4. Set `draft: false` or remove the field when the article is ready to publish.
 
 Set `NEXT_PUBLIC_SITE_URL` to the production URL during deployment so canonical metadata and social previews point to the public site. The intended production URL is `https://leo.potatodog.cc`.
+
+## Benchmark entries
+
+Add one Markdown file per entry under `benchmarks/`. The filename is the public URL slug. Copy an existing entry's frontmatter and keep its vocabulary for filter values.
+
+- Give new entries a permanent `id` and set `order` to the domain and position in the directory. Preserve existing IDs and slugs.
+- Put alternate names in `aliases`. Use a short `summary` that describes what the benchmark evaluates.
+- Record the sample count and use the optional `version` field for the exact release covered. Set `reviewed` to the source review date in quoted YYYY-MM-DD format.
+- Use `##` for the page sections so they appear in the table of contents. Keep the scope, task format, scoring, and source notes explicit.

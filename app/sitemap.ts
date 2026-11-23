@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next'
+import { getBenchmarkListings } from '@/lib/benchmarks'
 import { getAllPosts } from '@/lib/posts'
 import { siteUrl } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ['/', '/blog', '/notes', '/projects', '/about', '/topics']
+  const staticRoutes = ['/', '/blog', '/notes', '/projects', '/benchmarks', '/about', '/topics']
   const staticEntries = staticRoutes.map((route) => ({
     url: new URL(route, siteUrl).toString(),
     lastModified: new Date(),
@@ -17,5 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticEntries, ...postEntries]
+  const benchmarkEntries = getBenchmarkListings().map(({ slug }) => ({
+    url: new URL(`/benchmarks/${slug}`, siteUrl).toString(),
+    changeFrequency: 'monthly' as const,
+  }))
+
+  return [...staticEntries, ...postEntries, ...benchmarkEntries]
 }

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-type PixelIconName = 'brand' | 'journal' | 'scroll' | 'anvil' | 'nameplate' | 'map' | 'search' | 'sun' | 'moon' | 'sprout'
+type PixelIconName = 'brand' | 'journal' | 'scroll' | 'anvil' | 'nameplate' | 'map' | 'search' | 'sun' | 'moon' | 'sprout' | 'books'
 
 type PixelIconProps = { name: PixelIconName; size?: number; className?: string }
 
@@ -95,7 +95,19 @@ function Sprout() {
   </>
 }
 
-const icons: Record<PixelIconName, () => ReactNode> = { brand: Brand, journal: Journal, scroll: Scroll, anvil: Anvil, nameplate: Nameplate, map: Map, search: Search, sun: Sun, moon: Moon, sprout: Sprout }
+function Books() {
+  return <>
+    <path d="M2 5h7V3h7v5h4v3h2v10H2z" fill={c.ink} />
+    <rect x="4" y="7" width="4" height="12" fill={c.violet} />
+    <rect x="10" y="5" width="4" height="14" fill={c.red} />
+    <path d="M16 10h3v3h1v6h-4z" fill={c.gold} />
+    <path d="M4 9h4v2H4zm6-2h4v2h-4zm6 5h3v2h-3z" fill={c.paper} />
+    <rect x="4" y="17" width="4" height="1" fill={c.paper} />
+    <rect x="10" y="17" width="4" height="1" fill={c.paper} />
+  </>
+}
+
+const icons: Record<PixelIconName, () => ReactNode> = { brand: Brand, journal: Journal, scroll: Scroll, anvil: Anvil, nameplate: Nameplate, map: Map, search: Search, sun: Sun, moon: Moon, sprout: Sprout, books: Books }
 
 export function PixelIcon({ name, size = 24, className }: PixelIconProps) {
   const Shape = icons[name]

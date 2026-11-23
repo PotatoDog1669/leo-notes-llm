@@ -10,9 +10,10 @@ const navigation = [
   { href: '/', label: 'All', icon: 'map' },
   { href: '/blog', label: 'Blog', icon: 'scroll' },
   { href: '/notes', label: 'Notes', icon: 'journal' },
+  { href: '/benchmarks', label: 'Benchmarks', icon: 'books' },
   { href: '/projects', label: 'Projects', icon: 'anvil' },
   { href: '/about', label: 'About Me', icon: 'nameplate' },
-]
+] as const
 
 const accentChoices = [
   { name: 'Purple', value: '#a951c7', deep: '#80369d' },
@@ -114,7 +115,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             const active = item.href === '/' ? pathname === '/' : pathname === item.href || pathname.startsWith(`${item.href}/`)
             return (
               <Link key={item.href} href={item.href} className={active ? 'active' : ''} onClick={() => setMenuOpen(false)}>
-                <span aria-hidden="true"><PixelIcon name={item.icon as 'map' | 'journal' | 'scroll' | 'anvil' | 'nameplate'} size={24} /></span>
+                <span aria-hidden="true"><PixelIcon name={item.icon} size={24} /></span>
                 {item.label}
               </Link>
             )
